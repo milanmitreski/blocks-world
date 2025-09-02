@@ -1,2 +1,3 @@
-# blocks-world
-Seminarski rad iz Automatskog reznonovanja na temu "Problemi planiranja i svođenje na SAT".
+# Problemi planiranja i svođenje na SAT
+
+Seminarski rad iz Automatskog reznonovanja, kursa na master studijama na Matematičkom fakultetu Univerziteta u Beogradu. 
