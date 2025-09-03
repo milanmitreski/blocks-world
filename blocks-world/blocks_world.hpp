@@ -9,6 +9,8 @@ namespace bw {
     using Tower = std::vector<Block>;
     using State = std::vector<Tower>;
 
+    State load_state(const std::string& filename);
+
     template<typename Collection, typename Element, typename... Args>
     Collection of(Args... args) {
         return Collection{static_cast<Element>(args)...}; 
@@ -18,12 +20,12 @@ namespace bw {
     public:
         BlocksWorld(State initial_state, State goal_state): initial_state_(initial_state), goal_state_(goal_state) {};
         ~BlocksWorld() = default;
-
-        State get_initial_state() const;
-        State get_goal_state() const;
+    
         unsigned num_blocks() const;
 
         pln::PlanningProblem to_planning_problem() const;
+
+        std::string plan_to_string(const std::vector<pln::Action>& plan) const;
     private:
         State initial_state_;
         State goal_state_;
@@ -37,6 +39,8 @@ namespace bw {
         pln::Action move_to_table_action(const Block& block, const Block& from) const;
         pln::Action move_from_table_action(const Block& block, const Block& to) const;
         pln::Action move_to_block_action(const Block& block, const Block& from, const Block& to) const;
+
+        std::string action_to_string(const pln::Action& action) const;
     };
 }
 
